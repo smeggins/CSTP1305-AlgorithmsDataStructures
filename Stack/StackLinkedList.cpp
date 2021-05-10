@@ -13,10 +13,18 @@ void MyStackLinkedList::push(int a) {
 	}
 }
 int MyStackLinkedList::pop() {
-	int nodeData{ top->data };
-	if (top->next == nullptr) {
-		delete(top);
-		top = nullptr;
+	int nodeData{ -1 };
+	if (top != nullptr) {
+		nodeData = top->data;
+		if (top->next == nullptr) {
+			delete(top);
+			top = nullptr;
+		}
+		else {
+			Node* tmpNode{ top };
+			top = tmpNode->next;
+			delete(tmpNode);
+		}
 	}
 	return nodeData;
 }
