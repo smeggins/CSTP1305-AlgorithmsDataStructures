@@ -4,6 +4,7 @@
 
 void MyStackLinkedList::push(int a) {
 	Node* newNode{ new Node(a) };
+
 	if (top == nullptr) {
 		top = newNode;
 	}
@@ -12,6 +13,7 @@ void MyStackLinkedList::push(int a) {
 		top = newNode;
 	}
 }
+
 int MyStackLinkedList::pop() {
 	int nodeData{ -1 };
 	if (top != nullptr) {
@@ -23,11 +25,12 @@ int MyStackLinkedList::pop() {
 		else {
 			Node* tmpNode{ top };
 			top = tmpNode->next;
-			delete(tmpNode);
+			delete tmpNode;
 		}
 	}
 	return nodeData;
 }
+
 int MyStackLinkedList::peek() {
 	return top->data;
 }

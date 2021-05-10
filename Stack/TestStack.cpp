@@ -12,7 +12,7 @@ int main() {
 	aStack.push(5);
 	aStack.pop();
 	aStack.push(4);
-	cout << aStack.peek();
+	cout << "Peeking at the last value: " << aStack.peek() << endl;
 
 	return 0;
 }
