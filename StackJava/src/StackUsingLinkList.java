@@ -17,6 +17,7 @@ public class StackUsingLinkList {
     public void push(int a) {
         
         Node newNode = new Node(a);
+        // below code is redundant because in java it always initializes an object as null
         newNode.next = null;
         if (top == null) {
             top = newNode;

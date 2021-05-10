@@ -1,10 +1,11 @@
 #include <iostream>
 #include "Header.h"
+#include "StackLinkedList.h"
 using namespace std;
 
 int main() {
 	cout << "this is a test\n";
-	MyStack aStack;
+	MyStackLinkedList aStack;
 	aStack.push(1);
 	aStack.push(7);
 	aStack.push(2);
