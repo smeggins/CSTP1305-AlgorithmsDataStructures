@@ -4,7 +4,7 @@ public class PalindromeStackUsingAnArray {
         top = -1;
     }
 
-    private char[] arr = new char[2]; 
+    private char[] arr = new char[1]; 
     public int top;
 
     
@@ -41,9 +41,9 @@ public class PalindromeStackUsingAnArray {
         ++top;
     }
 
-    public int pop() {
+    public char pop() {
         // removes and returns the top item in the stack
-        int val = -1;
+        char val = '#'; 
         if (top >= 0) {
             val = arr[top];
             --top;   
@@ -51,7 +51,7 @@ public class PalindromeStackUsingAnArray {
         return val;
     }
 
-    public int peek() {
+    public char peek() {
         // returns top item on stack
         return arr[top];
     }
@@ -107,16 +107,16 @@ public class PalindromeStackUsingAnArray {
         aStack.push('A');
         System.out.println("Push::array pos: " + aStack.top + ", value: " + aStack.arr[aStack.top]);
         System.out.println("is it empty: " + aStack.isEmpty());
-        aStack.push('B');
+        aStack.push('E');
         System.out.println("Push::array pos: " + aStack.top + ", value: " + aStack.arr[aStack.top]);
         aStack.push('C');
         System.out.println("Push::array pos: " + aStack.top + ", value: " + aStack.arr[aStack.top]);
         aStack.push('B');
         System.out.println("Push::array pos: " + aStack.top + ", value: " + aStack.arr[aStack.top]);
-        aStack.push('R');
+        aStack.push('A');
         System.out.println("Push::array pos: " + aStack.top + ", value: " + aStack.arr[aStack.top]);
         System.out.println("is Palendrome: " + aStack.isPalendrome());
-        aStack.pop();
+        System.out.println("popping this value: " + aStack.pop());
         System.out.println("Pop::array pos: " + aStack.top + ", value: " + aStack.arr[aStack.top]);
         System.out.println("peek: " + aStack.peek());
         System.out.println("display: ");
