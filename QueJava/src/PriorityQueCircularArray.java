@@ -13,10 +13,14 @@ public class PriorityQueCircularArray {
     }
 
     int peek() {
+        System.out.println("in peek");
         int min = Integer.MAX_VALUE;
+        System.out.println("min val: " + min);
         for (int i = 0; i < last_index + 1; i++) {
             if (arr[i] <= min) {
+                System.out.println(arr[i] + " <= " + min);
                 min = arr[i];
+                System.out.println("new min: " + min);
             }
         }
         return min;

@@ -23,22 +23,21 @@ public class Display {
 
     private static void displayArrayRecursiveMiddleTreeLToR(int[] arr, int first_index, int last_index) {
         // print middle of each section breakdown,//
-        //               -4-                      //
-        //        2/             \6               //
-        //   1/       \3     5/       \7          //
+        //               -3-                      //
+        //        1/             \5               //
+        //   0/       \2     4/       \6          //
         ////////////////////////////////////////////
-        if (last_index > first_index) {
-            if (first_index == last_index) {
-                System.out.println("Item: " + arr[first_index]);
-            }
-            else {
-                int middle_index = (first_index + last_index) / 2;
-    
-                System.out.println("Item: " + arr[middle_index]);
-    
-                displayArrayRecursiveMiddleTreeLToR(arr, first_index, middle_index -1);
-                displayArrayRecursiveMiddleTreeLToR(arr, middle_index + 1, last_index);
-            }
+        
+        if (first_index == last_index) {
+            System.out.println("last Item: " + arr[first_index]);
+        }
+        else if (last_index > first_index) {
+            int middle_index = (first_index + last_index) / 2;
+
+            System.out.println("recur Item: " + arr[middle_index]);
+
+            displayArrayRecursiveMiddleTreeLToR(arr, first_index, middle_index -1);
+            displayArrayRecursiveMiddleTreeLToR(arr, middle_index + 1, last_index);
         }
     }
 
@@ -48,37 +47,38 @@ public class Display {
         //        2/             \6               //
         //   1/       \3     5/       \7          //
         ////////////////////////////////////////////
-        if (last_index > first_index) {
-            if (first_index == last_index) {
-                System.out.println("Item: " + arr[first_index]);
-            }
-            else {
-                int middle_index = (first_index + last_index) / 2;
-    
-                System.out.println("Item: " + arr[middle_index]);
-    
-                displayArrayRecursiveMiddleTreeRToL(arr, middle_index + 1, last_index);
-                displayArrayRecursiveMiddleTreeRToL(arr, first_index, middle_index -1);
-            }
+
+        if (first_index == last_index) {
+            System.out.println("Last Item: " + arr[first_index]);
+        }
+        else if (last_index > first_index) {
+            int middle_index = (first_index + last_index) / 2;
+
+            System.out.println("recur Item: " + arr[middle_index]);
+
+            displayArrayRecursiveMiddleTreeRToL(arr, middle_index + 1, last_index);
+            displayArrayRecursiveMiddleTreeRToL(arr, first_index, middle_index -1);
         }
     }
 
     public static void main(String[] args) throws Exception {
     
-        int[] arr = new int[6];
+        int[] arr = new int[7];
         arr[0] = 40;
         arr[1] = 50;
         arr[2] = 30;
         arr[3] = 59;
         arr[4] = 33;
         arr[5] = 83;
+        arr[6] = 42;
         // // coundown/up items in array
         // displayArrayRecursive(arr, 0, arr.length-1);
         // displayArrayIter(arr);
 
         // displayArrayRecursiveLastToFirst(arr, arr.length-1);
-
+        System.out.println("\n\nprinting ltor");
         displayArrayRecursiveMiddleTreeLToR(arr, 0, arr.length-1);
+        System.out.println("\n\nprinting rtol");
         displayArrayRecursiveMiddleTreeRToL(arr, 0, arr.length-1);
     }
 }

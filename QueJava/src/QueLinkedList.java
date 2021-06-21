@@ -1,12 +1,12 @@
-class Node {
+class YNode {
     int data;
-    Node next;
+    YNode next;
 
-    Node() {
+    YNode() {
         data = 0;
         next = null;
     }
-    Node(int d, Node n) {
+    YNode(int d, YNode n) {
         data = d;
         next = n;
     }
@@ -14,8 +14,8 @@ class Node {
 
 public class QueLinkedList {
     
-    Node front;
-    Node back;
+    YNode front;
+    YNode back;
     // int size;
 
     QueLinkedList() {
@@ -24,7 +24,7 @@ public class QueLinkedList {
     }
 
     void insert(int val) {
-        Node newNode = new Node(val, null);
+        YNode newNode = new YNode(val, null);
         if (front == null) {
             front = newNode;
             back = newNode;

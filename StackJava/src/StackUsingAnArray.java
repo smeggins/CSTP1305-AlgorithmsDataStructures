@@ -1,5 +1,6 @@
 public class StackUsingAnArray {
 
+    // STACKS ARE LAST IN FIRST OUT
     StackUsingAnArray() {
         top = -1;
     }

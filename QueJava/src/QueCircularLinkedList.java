@@ -24,7 +24,8 @@ public class QueCircularLinkedList {
     }
 
     void insert(int val) {
-        CNode newCNode = new CNode(val, front);
+        CNode newCNode = new CNode(val, front); // we use front here because the last item always
+                                                // points to the first item in a circular que linked list
         if (front == null) {
             front = newCNode;
             back = newCNode;
@@ -41,7 +42,7 @@ public class QueCircularLinkedList {
 
     int remove() {
         int d = -1;
-        if (front!= null) {
+        if (front != null) {
             d = front.data;
             if (front == back) {
                 front = null;

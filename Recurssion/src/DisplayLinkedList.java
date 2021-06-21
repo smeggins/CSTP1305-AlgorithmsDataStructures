@@ -1,24 +1,24 @@
-class Node{
+class ZNode {
     int data;
-    Node next;
-    Node(int a){
+    ZNode next;
+
+    ZNode(int a) {
         data = a;
         next = null;
     }
-
 }
 
 public class DisplayLinkedList {
 
-    private static void displayListIter(Node a) {
-        Node iter = a;
+    private static void displayListIter(ZNode a) {
+        ZNode iter = a;
         while (iter != null) {
             System.out.println(iter.data);
             iter = iter.next;
         }
     }
 
-    private static void displayListRecursive(Node a) {
+    private static void displayListRecursive(ZNode a) {
         if (a == null) {
         }
         else {
@@ -27,10 +27,16 @@ public class DisplayLinkedList {
         }
     }
 
-    private static void displayListRecursivelyLasttoFirst(Node a) {
+    private static void displayListRecursivelyLasttoFirst(ZNode a) {
         if (a == null) {
         }
         else {
+            // NOTE: we switched from last to first here because we are preforming all
+            // method calls before we acutually print anything so it will iterate
+            // all the way to the last node then it will finish that method call
+            // by running the print command, then when it finishes the next method can 
+            // finish.... until it reaches the first method call where it then
+            // uses that print and closes the last instance of that method.
             displayListRecursivelyLasttoFirst(a.next);
             System.out.println(a.data);
         }
@@ -38,12 +44,12 @@ public class DisplayLinkedList {
 
     public static void main(String[] args) {
     
-        Node a = new Node(40);
-        Node b = new Node(50);
-        Node c = new Node(30);
-        Node d = new Node(59);
-        Node e = new Node(33);
-        Node f = new Node(83);
+        ZNode a = new ZNode(40);
+        ZNode b = new ZNode(50);
+        ZNode c = new ZNode(30);
+        ZNode d = new ZNode(59);
+        ZNode e = new ZNode(33);
+        ZNode f = new ZNode(83);
     
         a.next = b;        
         b.next = c;
