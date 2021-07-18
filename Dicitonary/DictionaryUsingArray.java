@@ -1,16 +1,6 @@
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-class Pair {
-    int key;
-    String val;
-
-    public Pair(int a_key, String a_val) {
-        key = a_key;
-        val = a_val;
-    }
-}
-
 public class DictionaryUsingArray {
 
     Pair[] arr = new Pair[10];
