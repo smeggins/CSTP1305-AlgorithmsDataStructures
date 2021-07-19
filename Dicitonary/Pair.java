@@ -1,9 +1,9 @@
 public class Pair {
     int key;
-    String val;
+    String value;
 
     public Pair(int a_key, String a_val) {
         key = a_key;
-        val = a_val;
+        value = a_val;
     }
 }

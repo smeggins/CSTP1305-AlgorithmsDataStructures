@@ -1,8 +1,6 @@
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-
-
 class DictNode {
     Pair pair;
     DictNode next;
@@ -16,11 +14,11 @@ class DictNode {
     }
  }
 
-public class DictionaryUsingLinkedList {
+public class DictionaryUsingLinkedList implements DictionaryInterface{
     DictNode head;
 
-    void insert(int key, String val) {
-        Pair pair = new Pair(key, val);
+    public void insert(int key, String value) {
+        Pair pair = new Pair(key, value);
         DictNode newNode = new DictNode(pair);
         
         if(head == null) {
@@ -36,18 +34,18 @@ public class DictionaryUsingLinkedList {
         }
     } 
 
-    String lookup (int key) {
+    public String lookup (int key) {
         DictNode iterator = head;
         while (iterator != null) {
             if (iterator.pair.key == key) {
-                return iterator.pair.val;
+                return iterator.pair.value;
             }
             iterator = iterator.next;
         }
         return null;
     }
 
-    void remove(int key) {
+    public void remove(int key) {
         if (head.pair.key == key) {
             head = head.next;
         }
@@ -62,11 +60,11 @@ public class DictionaryUsingLinkedList {
         }
     }
 
-    void modify (int key, String value) {
+    public void modify (int key, String value) {
         DictNode iterator = head;
         while (iterator != null) {
             if (iterator.pair.key == key) {
-                iterator.pair.val = value;
+                iterator.pair.value = value;
             }
             iterator = iterator.next;
         }
@@ -75,7 +73,7 @@ public class DictionaryUsingLinkedList {
     public static void main(String[] args) throws Exception {
         
         System.out.println("test: ");
-        DictionaryUsingLinkedList testDic = new DictionaryUsingLinkedList();
+        DictionaryInterface testDic = new DictionaryUsingLinkedList();
         testDic.insert(1, "phil");
         testDic.insert(2989, "karen");
         testDic.insert(3, "james");
@@ -88,5 +86,6 @@ public class DictionaryUsingLinkedList {
         System.out.println("lookup 2989: " + testDic.lookup(2989));
         testDic.remove(2989);
         System.out.println(testDic.lookup(2989));
+        
     }
 }
