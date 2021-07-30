@@ -1,3 +1,5 @@
+import java.io.Console;
+
 class HashingNode {
     StringPair pair;
     HashingNode next;
@@ -43,18 +45,6 @@ public class HashingSeparateChaining {
         return hashCode(key) % arr.length;
     }
 
-    // public int probe(String key) {
-    //     int resultIndex = getHash(key);
-        
-    //     if ( arr[resultIndex].status == Occupancy.occupied) {
-    //         return resultIndex;
-    //     }
-    //     else {
-    //         throw new KeyNotFoundException("Key not found");
-    //     }
-    // }
-
-
 //////////////////////////////Dictionary Component/////////////////////////////
 
 
@@ -92,7 +82,7 @@ public class HashingSeparateChaining {
                 arr[index].pair.key = "";
                 arr[index].pair.value = "";
             }
-            // otherwise like array directly to the next node
+            // otherwise link array directly to the next node
             else {
                 arr[index] = node.next;
             }
@@ -107,50 +97,66 @@ public class HashingSeparateChaining {
             }
             node = node.next;
         }
-        // if item is not found handle that event here
+        // if item is not found 
     }
 
     public String lookup (String key) throws KeyNotFoundException {
         HashingNode node = arr[getHash(key)];
+        String value = "Item Not Found";
 
-        // if the first nodes pair hasn't been instantiated then there is nothing to lookup at this position
-        if (node.pair == null) {
-            throw new KeyNotFoundException("Key not found");
-        }
-
-        do {
-            if (node.pair.key == key) {
-                // if the key already exists then we shouldn't insert
-                // note the above refers to the internal key not the index
-                return node.pair.value;
+        try {
+            // if the first nodes pair hasn't been instantiated then there is nothing to lookup at this position
+            if (node.pair == null) {
+                throw new KeyNotFoundException("Key not found");
             }
-            node = node.next;
 
-        }while (node != null && node.next != null);
-
-        throw new KeyNotFoundException("Key not found");
+            if (node.pair.key == key) {
+                value = node.pair.value;
+            }
+            else {
+                
+                while (node.next != null) {
+                    if (node.next.pair.key == key) {
+                        value = node.next.pair.value;
+                        break;
+                    }
+                    node = node.next;
+                }
+            }
+        }
+        catch (KeyNotFoundException k) {
+            System.err.println(k.getLocalizedMessage());
+        }
+        
+        return value;
     }
 
     public void modify (String key, String value) throws KeyNotFoundException {
         HashingNode node = arr[getHash(key)];
 
-        // if the first nodes pair hasn't been instantiated then there is nothing to modify at this position
-        if (node.pair == null) {
-            throw new KeyNotFoundException("Key not found");
-        }
-
-        do {
-            if (node.pair.key == key) {
-                // if the key already exists then we shouldn't insert
-                // note the above refers to the internal key not the index
-                node.pair.value = value;
-                return;
+        try {
+            // if the first nodes pair hasn't been instantiated then there is nothing to lookup at this position
+            if (node.pair == null) {
+                throw new KeyNotFoundException("Key not found");
             }
-            node = node.next;
 
-        }while (node != null && node.next != null);
-
-        throw new KeyNotFoundException("Key not found");
+            if (node.pair.key == key) {
+                node.pair.value = value;
+            }
+            else {
+                
+                while (node.next != null) {
+                    if (node.next.pair.key == key) {
+                        node.next.pair.value = value;
+                        break;
+                    }
+                    node = node.next;
+                }
+            }
+        }
+        catch (KeyNotFoundException k) {
+            System.err.println(k.getLocalizedMessage());
+        }
     }
 
     public static void main(String[] args) throws Exception {
@@ -159,17 +165,31 @@ public class HashingSeparateChaining {
         try {
             HashingSeparateChaining testDic = new HashingSeparateChaining();
             testDic.insert("1", "phil");
-            testDic.insert("2989", "karen");
             testDic.insert("3", "james");
             testDic.insert("4", "jimjam");
-    
-            System.out.println(testDic.lookup("4"));
-    
-            System.out.println(testDic.lookup("2989"));
+
+            testDic.insert("2989", "karen");
+            testDic.insert("2", "brigs");
+
+            System.out.println(" lookup key '4': value = " + testDic.lookup("4"));
+
+            System.out.println("\n Hashing Conflict solved by chaining:");
+            System.out.println("  (2989, karen) hashed index is: " + testDic.getHash("2989"));
+            System.out.println("  (2, brigs) hashed index is: " + testDic.getHash("2"));
+
+            System.out.println("  lookup key '2989': value = " + testDic.lookup("2989"));
+            System.out.println("  lookup key '2': value = " + testDic.lookup("2"));
             testDic.modify("2989", "Brock");
-            System.out.println(testDic.lookup("2989"));
+            System.out.println("\n  lookup key '2989'after changing value to Brock: value = " + testDic.lookup("2989"));
+            System.out.println("  lookup key '2' is unaffected by change even though it is at the same index: value = " + testDic.lookup("2"));
+            testDic.modify("2", "Winona");
+            System.out.println("\n  lookup key '2989' should still be Brock: value = " + testDic.lookup("2989"));
+            System.out.println("  lookup key '2' after changing value to Winona: value = " + testDic.lookup("2"));
             testDic.remove("2989");
-            System.out.println(testDic.lookup("2989"));
+            System.out.println("\n  lookup key '2989' after deleting value: value = " + testDic.lookup("2989"));
+            System.out.println("  lookup key '2' is again unaffected: value = " + testDic.lookup("2"));
+            
+            
         }
         catch (KeyNotFoundException obj) {
             System.out.println(obj.getMessage());
