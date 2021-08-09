@@ -16,6 +16,14 @@ public class countRecursive {
         }
     }
 
+    //print a till 1 and stop
+    static void countTailRecursive(int a){
+        if( a >= 1) {
+            System.out.println(a);
+            countdown(a - 1);
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         // Basic countdown using itr and recur
         System.out.println("Start countdown with 10: ");

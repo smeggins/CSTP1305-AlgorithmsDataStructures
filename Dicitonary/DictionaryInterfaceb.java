@@ -1,4 +1,4 @@
-public interface DictionaryInterface {
+public interface DictionaryInterfaceb {
     // the key is the search object for the new entry
     // the value is the associated obvject with the key
     // if the key existsd, you should replace the old value with the new

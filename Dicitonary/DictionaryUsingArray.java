@@ -1,7 +1,7 @@
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-public class DictionaryUsingArray implements DictionaryInterface{
+public class DictionaryUsingArray implements DictionaryInterfaceb{
 
     Pair[] arr = new Pair[10];
     int last = 0;
@@ -50,7 +50,7 @@ public class DictionaryUsingArray implements DictionaryInterface{
     public static void main(String[] args) throws Exception {
         
         System.out.println("test: ");
-        DictionaryInterface testDic = new DictionaryUsingArray();
+        DictionaryInterfaceb testDic = new DictionaryUsingArray();
         testDic.insert(1, "phil");
         testDic.insert(2989, "karen");
         testDic.insert(3, "james");

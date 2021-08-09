@@ -87,4 +87,72 @@ public class AlgoritmExploration {
             System.out.println(integer);
         }
     }
+
+    /*
+    merge sort O(nlog(n)):
+        this sorting algorithm has n operations during each level of iteration ie:
+               8        =8    Level0
+              4-4       =8    Level1    
+            2-2-2-2     =8    Level2
+        1-1-1-1-1-1-1-1 =8    Level3
+
+        the height of this tree is log(n) ie:
+        log(8) = 3
+
+        Therefore: 
+            Merge Sort = O(nlog(n))
+    */
+
+    /*
+    Heap Sort O(nlog(n)) (slightly worse complexity than merge sort):
+        heap sort first need to create a max or min heap out of the array.
+        this action has a complexity of: 
+        O(n)
+
+        after this for n times:
+        O(n)
+        
+        we sort though the tree (min/max-heap) adding the larges value to the root
+        then swapping that value to the sorted section of the array.
+        This has a complexity of:
+        O(log(n))
+
+        this becomes :
+        O(n+nlog(n))
+
+        simpified it becomes:
+
+        O(nlog(n))
+    */
+
+    /*
+    Selection sort O(n^2) (slightly worse complexity than insertion sort):
+        In selection sort you iterate through the unsorted portion of the array, identifying the lowest/highest
+        value, then you add that value to the sorted side and reapeat.
+
+        This means the number of operations will be a complexity of:
+        O(n^2)
+    */
+
+    /*
+    Insertion Sort slightly :
+        for instertion sorting you check each value as you come to it in the array against the previous elements
+        until it finds a value smaller than the current element or it reaches the root.
+        then it shifts all the elements larger than the checked element forward and place the checked element
+        in the ordered position.
+
+        This means the number of operations will be a complexity of:
+        O(n^2)
+    */
+
+    /*
+    Order from best to worst time complexity:
+    merge sort          O(nlog(n))
+    heap sort           O(nlog(n))
+    insertion sort      O(n^2)
+    selection sort      O(n^2)
+    
+    NOTE: insertion sort is often faster than merge or heap sort 
+    when the array contains fewer elements (specifically 43 or less).
+    */
 }

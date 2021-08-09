@@ -1,9 +1,9 @@
-public class PriorityQueCircularArray {
+public class PriorityQueArray {
     
     int[] arr = new int[8];
     int last_index;
 
-    PriorityQueCircularArray() {
+    PriorityQueArray() {
         last_index = -1;
     }
 
@@ -49,7 +49,7 @@ public class PriorityQueCircularArray {
 
     public static void main(String[] args) throws Exception {
         System.out.println("PriorityQueCircularArray: ");
-        PriorityQueCircularArray que = new PriorityQueCircularArray();
+        PriorityQueArray que = new PriorityQueArray();
         que.insert(5);
         que.insert(6);
         que.insert(2);

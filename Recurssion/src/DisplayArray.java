@@ -1,4 +1,4 @@
-public class Display {
+public class DisplayArray {
 
     private static void displayArrayRecursive(int[] arr, int start_index, int last_index) {
         System.out.println("startindex: " + arr[start_index]);
@@ -64,13 +64,13 @@ public class Display {
     public static void main(String[] args) throws Exception {
     
         int[] arr = new int[7];
-        arr[0] = 40;
-        arr[1] = 50;
-        arr[2] = 30;
-        arr[3] = 59;
-        arr[4] = 33;
-        arr[5] = 83;
-        arr[6] = 42;
+        arr[0] = 1;
+        arr[1] = 2;
+        arr[2] = 3;
+        arr[3] = 4;
+        arr[4] = 5;
+        arr[5] = 6;
+        arr[6] = 7;
         // // coundown/up items in array
         // displayArrayRecursive(arr, 0, arr.length-1);
         // displayArrayIter(arr);

@@ -14,7 +14,7 @@ class DictNode {
     }
  }
 
-public class DictionaryUsingLinkedList implements DictionaryInterface{
+public class DictionaryUsingLinkedList implements DictionaryInterfaceb{
     DictNode head;
 
     public void insert(int key, String value) {
@@ -73,7 +73,7 @@ public class DictionaryUsingLinkedList implements DictionaryInterface{
     public static void main(String[] args) throws Exception {
         
         System.out.println("test: ");
-        DictionaryInterface testDic = new DictionaryUsingLinkedList();
+        DictionaryInterfaceb testDic = new DictionaryUsingLinkedList();
         testDic.insert(1, "phil");
         testDic.insert(2989, "karen");
         testDic.insert(3, "james");
